@@ -4,17 +4,18 @@ low=$1
 step=$2
 high=$3
 runs=$4
+dir=$5
 
-if [ -z "$low" -o -z "$step" -o -z "$high" -o -z "$runs" ]
+if [ -z "$low" -o -z "$step" -o -z "$high" -o -z "$runs" -o -z "$dir" ]
 then
     echo "Usage"
-    echo "  $0 low step high runs_per_step"
+    echo "  $0 low step high runs_per_step output_directory"
     exit 1
 fi
 
 for games in `seq -w $low $step $high`
 do
-    outdir="data_3/${games}"
+    outdir="${dir}/${games}"
     mkdir -p $outdir
     echo "Doing $games set"
     date
