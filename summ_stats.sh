@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Game Length,Player 1 Wins,Player 1 Margin,Player 2 Margin,Shortest Average,Longest Average, Average Average"
+echo "Game Length,Player 1 Wins,Player 1 Margin,Player 2 Margin,Shortest Average,Longest Average, Average Average" > summary.csv
 
 for csv in `ls */stats.csv`
 do
@@ -76,5 +76,5 @@ do
     done
     if [ -n "$math" ]; then average=`perl -e "print (($math)/$games) . \"\n\""`; fi
 
-    echo "$length,$play1_perc,$play1_marg,$play2_marg,$shortest,$longest,$average"
+    echo "$length,$play1_perc,$play1_marg,$play2_marg,$shortest,$longest,$average" >> summary.csv
 done
