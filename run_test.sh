@@ -29,6 +29,8 @@ do
         then
             echo "Sleeping 1 to allow for next run to randomize"
             sleep 1
+        else
+            echo -n "."
         fi
     done
     echo "Done with $games set"
